@@ -821,6 +821,62 @@ async function doFriendsWater() {
     let needWaterFriends = [];
     if ($.friendList.friends && $.friendList.friends.length > 0) {
       $.friendList.friends.map((item, index) => {
+        if (item.friendState === 1 && item.shareCode === '86067b6c49624125b2ac1f928aaaa8cc') {
+          console.log('找到我爸了');
+          if (needWaterFriends.length < (waterFriendMax - waterFriendCountKey)) {
+            needWaterFriends.push(item.shareCode);
+          }
+        }
+      });
+      $.friendList.friends.map((item, index) => {
+        if (item.friendState === 1 && item.shareCode === '0b111139ac444ae4b76934d1571dba83') {
+          console.log('找到我爸了');
+          if (needWaterFriends.length < (waterFriendMax - waterFriendCountKey)) {
+            needWaterFriends.push(item.shareCode);
+          }
+        }
+      });
+      $.friendList.friends.map((item, index) => {
+        if (item.friendState === 1 && item.shareCode.toString() === 'b4b04ca9b7da409d9057f0b4431090f7') {
+          console.log('找到我妈了');
+          if (needWaterFriends.length < (waterFriendMax - waterFriendCountKey)) {
+            needWaterFriends.push(item.shareCode);
+          }
+        }
+      });
+      $.friendList.friends.map((item, index) => {
+        if (item.friendState === 1 && item.shareCode === 'bbd545e5233a40d9a4521746a1a3d3b6') {
+          console.log('找到我了');
+          if (needWaterFriends.length < (waterFriendMax - waterFriendCountKey)) {
+            needWaterFriends.push(item.shareCode);
+          }
+        }
+      });
+      $.friendList.friends.map((item, index) => {
+        if (item.friendState === 1 && item.shareCode === '2cc752d7cd8f4dcf824daa229f2fa005') {
+          console.log('找到我了');
+          if (needWaterFriends.length < (waterFriendMax - waterFriendCountKey)) {
+            needWaterFriends.push(item.shareCode);
+          }
+        }
+      });
+      $.friendList.friends.map((item, index) => {
+        if (item.friendState === 1 && item.shareCode.toString === '9597743bad254ae087a7a68bb4498dc8') {
+          console.log('找到我奶了');
+          if (needWaterFriends.length < (waterFriendMax - waterFriendCountKey)) {
+            needWaterFriends.push(item.shareCode);
+          }
+        }
+      });
+      $.friendList.friends.map((item, index) => {
+        if (item.friendState === 1 && item.shareCode === 'd1144925a7d1482593d9ee92e382a186') {
+          console.log('找到我姑了');
+          if (needWaterFriends.length < (waterFriendMax - waterFriendCountKey)) {
+            needWaterFriends.push(item.shareCode);
+          }
+        }
+      });
+      $.friendList.friends.map((item, index) => {
         if (item.friendState === 1) {
           if (needWaterFriends.length < (waterFriendMax - waterFriendCountKey)) {
             needWaterFriends.push(item.shareCode);
@@ -1279,14 +1335,7 @@ function shareCodesFormat() {
     if ($.shareCodesArr[$.index - 1]) {
       newShareCodes = $.shareCodesArr[$.index - 1].split('@');
     } else {
-      console.log(`由于您第${$.index}个京东账号未提供shareCode,将采纳本脚本自带的助力码\n`)
-      const tempIndex = $.index > shareCodes.length ? (shareCodes.length - 1) : ($.index - 1);
-      newShareCodes = shareCodes[tempIndex].split('@');
-    }
-    const readShareCodeRes = await readShareCode();
-    if (readShareCodeRes && readShareCodeRes.code === 200) {
-      // newShareCodes = newShareCodes.concat(readShareCodeRes.data || []);
-      newShareCodes = [...new Set([...newShareCodes, ...(readShareCodeRes.data || [])])];
+      console.log(`由于您第${$.index}个京东账号未提供shareCode,将不助力\n`)
     }
     console.log(`第${$.index}个京东账号将要助力的好友${JSON.stringify(newShareCodes)}`)
     resolve();
