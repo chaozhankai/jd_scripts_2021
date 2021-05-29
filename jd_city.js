@@ -158,6 +158,9 @@ function getInfo(inviteId, flag = false) {
                                         await receiveCash(vo.roundNum)
                                         await $.wait(2 * 1000)
                                     }
+                                    console.log(vo.roundNum)
+                                    await receiveCash(vo.roundNum)
+                                    await $.wait(2 * 1000)
                                 }
                             } else {
                                 console.log(`\n\n${inviteId ? '助力好友' : '获取邀请码'}失败:${data.data.bizMsg}`)
