@@ -195,6 +195,9 @@ function receiveCash(roundNum) {
               console.log(`获得 ${data.data.result.currentTimeCash} 元，共计 ${data.data.result.totalCash} 元`)
             }
           }
+          if (!safeGet(data)){
+            console.log(`获得 ${data.data.result.currentTimeCash} 元，共计 ${data.data.result.totalCash} 元`)
+          }
         }
       } catch (e) {
         $.logErr(e, resp)
