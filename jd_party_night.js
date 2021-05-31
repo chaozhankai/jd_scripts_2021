@@ -103,7 +103,7 @@ async function partyNight(){
           await takePostRequest('partyTonight_lottery');
           await $.wait(5000);
      }
-     预约
+     // 预约
      await $.wait(2000);
      await takePostRequest('partyTonight_remind');
 }
