@@ -78,7 +78,7 @@ if ($.isNode()) {
                console.log(`${$.UserName}去助力${$.oneInviteInfo.use},助力码：${$.inviteCode}`)
                await takePostRequest('partyTonight_assist');
           }
-          //await $.wait(3000);
+          await $.wait(3000);
      }
 })()
   .catch((e) => {
@@ -89,23 +89,23 @@ if ($.isNode()) {
   })
 
 async function partyNight(){
-     // $.mainInfo = {};
-     // await takePostRequest('partyTonight_init');
-     // if(JSON.stringify($.mainInfo) === '{}'){
-     //      return ;
-     // }else {
-     //      console.log('获取活动信息成功');
-     // }
+     $.mainInfo = {};
+     await takePostRequest('partyTonight_init');
+     if(JSON.stringify($.mainInfo) === '{}'){
+          return ;
+     }else {
+          console.log('获取活动信息成功');
+     }
 
      $.runFlag = true;
-     //for (let i = 0; i < 10 && $.runFlag; i++) {
+     for (let i = 0; i < 10 && $.runFlag; i++) {
 
           await takePostRequest('partyTonight_lottery');
-          //await $.wait(5000);
-     //}
-     //预约
-     //await $.wait(2000);
-     //await takePostRequest('partyTonight_remind');
+          await $.wait(5000);
+     }
+     预约
+     await $.wait(2000);
+     await takePostRequest('partyTonight_remind');
 }
 
 async function takePostRequest(type) {
