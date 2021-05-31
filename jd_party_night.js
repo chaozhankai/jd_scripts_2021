@@ -59,27 +59,27 @@ if ($.isNode()) {
      }
 
      // //助力-------------------------
-     // for (let i = 0; i < cookiesArr.length; i++) {
-     //      $.index = i + 1;
-     //      $.cookie = cookiesArr[i];
-     //      $.UserName = decodeURIComponent($.cookie.match(/pt_pin=([^; ]+)(?=;?)/) && $.cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1]);
-     //      console.log(`\n*****开始【京东账号${$.index}】${$.nickName || $.UserName}*****\n`);
-     //      $.canHelp = true;
-     //      for (let j = 0; j < $.inviteCodeList.length && $.canHelp; j++) {
-     //           await $.wait(2000);
-     //           $.oneInviteInfo = $.inviteCodeList[j];
-     //           if($.oneInviteInfo.use === $.UserName){
-     //                continue;
-     //           }
-     //           if($.oneInviteInfo.max){
-     //                continue;
-     //           }
-     //           $.inviteCode = $.oneInviteInfo.inviteCode;
-     //           console.log(`${$.UserName}去助力${$.oneInviteInfo.use},助力码：${$.inviteCode}`)
-     //           await takePostRequest('partyTonight_assist');
-     //      }
-     //      //await $.wait(3000);
-     // }
+     for (let i = 0; i < cookiesArr.length; i++) {
+          $.index = i + 1;
+          $.cookie = cookiesArr[i];
+          $.UserName = decodeURIComponent($.cookie.match(/pt_pin=([^; ]+)(?=;?)/) && $.cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1]);
+          console.log(`\n*****开始【京东账号${$.index}】${$.nickName || $.UserName}*****\n`);
+          $.canHelp = true;
+          for (let j = 0; j < $.inviteCodeList.length && $.canHelp; j++) {
+               await $.wait(2000);
+               $.oneInviteInfo = $.inviteCodeList[j];
+               if($.oneInviteInfo.use === $.UserName){
+                    continue;
+               }
+               if($.oneInviteInfo.max){
+                    continue;
+               }
+               $.inviteCode = $.oneInviteInfo.inviteCode;
+               console.log(`${$.UserName}去助力${$.oneInviteInfo.use},助力码：${$.inviteCode}`)
+               await takePostRequest('partyTonight_assist');
+          }
+          //await $.wait(3000);
+     }
 })()
   .catch((e) => {
        $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
