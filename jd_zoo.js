@@ -82,7 +82,8 @@ if ($.isNode()) {
         continue
       }
       await zoo();
-      if($.hotFlag)$.secretpInfo[$.UserName] = false;//火爆账号不执行助力
+      // 目前账号都会{"code":0,"data":{"bizCode":-1002,"bizMsg":"活动太火爆了","success":false},"msg":"调用成功"}，这就很烦啊，不能做任务了
+      // if($.hotFlag)$.secretpInfo[$.UserName] = false;//火爆账号不执行助力
     }
   }
   // let res = [], res2 = [], res3 = [];
@@ -397,7 +398,7 @@ async function zoo() {
     //await takePostRequest('zoo_pk_getTaskDetail');
     let skillList = $.pkHomeData.result.groupInfo.skillList || [];
     //activityStatus === 1未开始，2 已开始
-    $.doSkillFlag = true;
+    $.doSkillFlag = false;
     for (let i = 0; i < skillList.length && $.pkHomeData.result.activityStatus === 2 && $.doSkillFlag; i++) {
       if (Number(skillList[i].num) > 0) {
         $.skillCode = skillList[i].code;
