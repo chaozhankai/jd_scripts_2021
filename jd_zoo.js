@@ -118,19 +118,20 @@ if ($.isNode()) {
       }
       $.canHelp = true;
     }
-    if ($.inviteList && $.inviteList.length) console.log(`\n******开始内部京东账号【邀请好友助力】*********\n`);
-    for (let j = 0; j < $.inviteList.length && $.canHelp; j++) {
-      $.oneInviteInfo = $.inviteList[j];
-      if ($.oneInviteInfo.ues === $.UserName || $.oneInviteInfo.max) {
-        continue;
-      }
-      //console.log($.oneInviteInfo);
-      $.inviteId = $.oneInviteInfo.inviteId;
-      console.log(`${$.UserName}去助力${$.oneInviteInfo.ues},助力码${$.inviteId}`);
-      //await takePostRequest('helpHomeData');
-      await takePostRequest('help');
-      await $.wait(2000);
-    }
+    // 不做邀请好友助力
+    // if ($.inviteList && $.inviteList.length) console.log(`\n******开始内部京东账号【邀请好友助力】*********\n`);
+    // for (let j = 0; j < $.inviteList.length && $.canHelp; j++) {
+    //   $.oneInviteInfo = $.inviteList[j];
+    //   if ($.oneInviteInfo.ues === $.UserName || $.oneInviteInfo.max) {
+    //     continue;
+    //   }
+    //   //console.log($.oneInviteInfo);
+    //   $.inviteId = $.oneInviteInfo.inviteId;
+    //   console.log(`${$.UserName}去助力${$.oneInviteInfo.ues},助力码${$.inviteId}`);
+    //   //await takePostRequest('helpHomeData');
+    //   await takePostRequest('help');
+    //   await $.wait(2000);
+    // }
   }
 })()
   .catch((e) => {
@@ -376,8 +377,7 @@ async function zoo() {
     }
     await $.wait(1000);
     $.pkTaskList = [];
-    // if(!$.hotFlag) await takePostRequest('zoo_pk_getTaskDetail');
-    await takePostRequest('zoo_pk_getTaskDetail');
+    if(!$.hotFlag) await takePostRequest('zoo_pk_getTaskDetail');
     await $.wait(1000);
     for (let i = 0; i < $.pkTaskList.length; i++) {
       $.oneTask = $.pkTaskList[i];
