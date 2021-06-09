@@ -376,7 +376,8 @@ async function zoo() {
     }
     await $.wait(1000);
     $.pkTaskList = [];
-    if(!$.hotFlag) await takePostRequest('zoo_pk_getTaskDetail');
+    // if(!$.hotFlag) await takePostRequest('zoo_pk_getTaskDetail');
+    await takePostRequest('zoo_pk_getTaskDetail');
     await $.wait(1000);
     for (let i = 0; i < $.pkTaskList.length; i++) {
       $.oneTask = $.pkTaskList[i];
